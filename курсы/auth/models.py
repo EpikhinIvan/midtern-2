@@ -1,12 +1,9 @@
 from django.db import models
-
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin
 
 class UserManager(BaseUserManager):
     def create_user(self, email, password=None, **extra_fields):
-        """
-        Создание и сохранение пользователя с указанным email и паролем.
-        """
+       
         if not email:
             raise ValueError('Email is required')
 
@@ -17,9 +14,7 @@ class UserManager(BaseUserManager):
         return user
 
     def create_superuser(self, email, password=None, **extra_fields):
-        """
-        Создание и сохранение суперпользователя с указанным email и паролем.
-        """
+    
         extra_fields.setdefault('is_staff', True)
         extra_fields.setdefault('is_superuser', True)
         return self.create_user(email, password, **extra_fields)
