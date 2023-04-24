@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Список товаров</h1>
+    <ul>
+        {% for product in products %}
+            <li>{{ product.name }} - {{ product.price }} руб.</li>
+        {% empty %}
+            <li>Нет товаров в наличии</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
